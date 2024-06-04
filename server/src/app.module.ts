@@ -4,7 +4,8 @@ import { AppService } from './app.service';
 import configuration from './config/configuration';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { TestUserModule } from './test-user/test-user.module';
+import { AuthModule } from './auth/auth.module';
+import { UserModule } from './user/user.module';
 import * as process from 'node:process';
 
 @Module({
@@ -28,7 +29,8 @@ import * as process from 'node:process';
         synchronize: process.env.NODE_ENV !== 'production',
       }),
     }),
-    TestUserModule,
+    AuthModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
